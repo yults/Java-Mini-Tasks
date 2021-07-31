@@ -1,0 +1,44 @@
+package com.javarush.task.pro.task17.task1708;
+
+/* 
+Минимальное и максимальное
+*/
+
+public class MinMaxUtil {
+    public static int min(int a, int b, int c, int d) {
+        int x = Math.min(a, b);
+        int y = Math.min(c, d);
+        return Math.min(x, y);
+    }
+    public static int min(int a, int b, int c) {
+        int x = Math.min(a, b);
+        return Math.min(x, c);
+    }
+    public static int min(int a, int b) {
+        return Math.min(a, b);
+    }
+    public static int min(int a, int b, int c, int d, int e) {
+        int x = Math.min(a, b);
+        int y = Math.min(c, d);
+        int z = Math.min(x, y);
+        return Math.min(z, e);
+    }
+    public static  int max(int a, int b, int c, int d) {
+        int x = Math.max(a, b);
+        int y = Math.max(c, d);
+        return Math.max(x, y);
+    }
+    public static int max(int a, int b, int c) {
+        int x = Math.max(a, b);
+        return Math.max(x, c);
+    }
+    public static int max(int a, int b) {
+        return Math.max(a, b);
+    }
+    public static int max(int a, int b, int c, int d, int e) {
+        int x = Math.max(a, b);
+        int y = Math.max(c, d);
+        int z = Math.max(x, y);
+        return Math.max(z, e);
+    }
+}
