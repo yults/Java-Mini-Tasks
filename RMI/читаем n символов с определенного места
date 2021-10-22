@@ -1,0 +1,42 @@
+package com.javarush.task.task32.task3210;
+
+import java.io.IOException;
+import java.io.RandomAccessFile;
+
+/* 
+Используем RandomAccessFile
+В метод main приходят три параметра:
+1) fileName - путь к файлу;
+2) number - число, позиция в файле;
+3) text - текст.
+
+Считать текст с файла начиная с позиции number, длиной такой же как и длина переданного текста в третьем параметре.
+Если считанный текст такой же как и text, то записать в конец файла строку 'true', иначе записать 'false'.
+Используй RandomAccessFile и его методы seek(long pos), read(byte[] b, int off, int len), write(byte[] b).
+Используй один из конструкторов класса String для конвертации считанной строчки в текст.
+*/
+
+public class Solution {
+    public static void main(String... args) {
+        try (RandomAccessFile raf = new RandomAccessFile(args[0], "rw")) {
+            long number = Long.parseLong(args[1]);
+            String text = args[2];
+            long fileLength = raf.length();
+
+            raf.seek(number);
+            byte[] readBytes = new byte[text.length()];
+            raf.read(readBytes, 0, text.length());
+
+            String readString = new String(readBytes);
+
+            raf.seek(fileLength);
+            if (readString.equals(text)) {
+                raf.write("true".getBytes());
+            } else {
+                raf.write("false".getBytes());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
